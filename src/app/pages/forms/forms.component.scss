@@ -1,5 +1,10 @@
 $appMainColor: #478D43;
 
+// Steps colors
+$completedStepColor: #82db85;
+$currentStepColor: #518edd;
+$nextStepColor: #b3b3b3;
+
 main {
 
     width: 100%;
@@ -37,9 +42,64 @@ main {
             flex-direction: column;
             justify-content: center;
 
-            >h4,span {
+            >h4,
+            span {
                 color: white;
             }
+
+            .timeline {
+                position: relative;
+                padding: 20px 2rem;
+            }
+
+            .step {
+                position: relative;
+                margin: 20px 0;
+                padding-left: 40px;
+
+                .circle {
+                    position: absolute;
+                    left: -22px;
+                    top: 0;
+                    width: 30px;
+                    height: 30px;
+                    color: white;
+                    border-radius: 50%;
+                    text-align: center;
+                    line-height: 30px;
+                    font-weight: bold;
+                    border: 3px solid white;
+
+                    background-color: $nextStepColor;
+                    box-shadow: 0 0 0 3px $nextStepColor;
+
+                    &.active {
+                        background-color: $currentStepColor;
+                        box-shadow: 0 0 0 3px $currentStepColor;
+                    }
+
+                    &.completed {
+                        background-color: $completedStepColor;
+                        box-shadow: 0 0 0 3px $completedStepColor;
+                    }
+
+                }
+
+                .content h3 {
+                    margin: 0 0 5px;
+                    font-size: 1.1rem;
+                    color: white;
+                }
+
+                .content p {
+                    margin: 0;
+                    font-size: 0.95rem;
+                    color: white;
+                }
+
+            }
+
+
 
         }
     }

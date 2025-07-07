@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FluidModule } from 'primeng/fluid';
 import { InputTextModule } from 'primeng/inputtext';
@@ -8,7 +8,7 @@ import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-forms',
-  imports: [NgIf, FluidModule, InputTextModule, DatePickerModule, SelectModule, ButtonModule],
+  imports: [NgIf, NgClass, FluidModule, InputTextModule, DatePickerModule, SelectModule, ButtonModule],
   templateUrl: './forms.component.html',
   styleUrl: './forms.component.scss'
 })

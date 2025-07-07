@@ -2,16 +2,57 @@
 
     <section class="stepper">
 
-        <div class="icon">
+        <div class="icon mt-4">
             <span>LOGO APP</span>
         </div>
 
         <div class="steps-info">
-            <h4>Step {{ stepsControl + 1 }} of 4</h4>
-            <span>
+            <h4>Paso {{ stepsControl + 1 }} de 4</h4>
+
+            <span class="mb-4">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis sequi minima beatae ea quisquam
                 maiores nisi delectus iste.
             </span>
+
+            <div class="timeline">
+                <div class="step">
+                    <div class="circle" [ngClass]="{'active': stepsControl === 0, 'completed': stepsControl > 0}">
+                        <i class="pi pi-user"></i>
+                    </div>
+                    <div class="content">
+                        <h3>Información personal</h3>
+                        <p>Descripción del primer paso.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="circle" [ngClass]="{'active': stepsControl === 1, 'completed': stepsControl > 1}">
+                        <i class="pi pi-briefcase"></i>
+                    </div>
+                    <div class="content">
+                        <h3>Información laboral</h3>
+                        <p>Descripción del segundo paso.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="circle" [ngClass]="{'active': stepsControl === 2, 'completed': stepsControl > 2}">
+                        <i class="pi pi-credit-card"></i>
+                    </div>
+                    <div class="content">
+                        <h3>Información del crédito</h3>
+                        <p>Descripción del tercer paso.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="circle" [ngClass]="{'active': stepsControl === 3}">
+                        <i class="pi pi-dollar"></i>
+                    </div>
+                    <div class="content">
+                        <h3>Información financiera</h3>
+                        <p>Descripción del cuarto paso.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </section>
@@ -292,7 +333,8 @@
                     <div class="flex flex-col md:flex-row gap-6 mt-3">
                         <div class="flex flex-wrap gap-2 w-full">
                             <label>Colillas de pago *</label>
-                            <input pInputText id="colillas_pago" type="file" placeholder="Valor de las colillas de pago" />
+                            <input pInputText id="colillas_pago" type="file"
+                                placeholder="Valor de las colillas de pago" />
                         </div>
                     </div>
 
@@ -306,7 +348,8 @@
                     <div class="flex flex-col md:flex-row gap-6 mt-3">
                         <div class="flex flex-wrap gap-2 w-full">
                             <label>Otros documentos *</label>
-                            <input pInputText id="otros_documentos" type="file" placeholder="Valor de otros documentos" />
+                            <input pInputText id="otros_documentos" type="file"
+                                placeholder="Valor de otros documentos" />
                         </div>
                     </div>
 
