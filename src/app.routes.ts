@@ -5,6 +5,8 @@ import { Documentation } from './app/pages/documentation/documentation';
 import { Landing } from './app/pages/landing/landing';
 import { Notfound } from './app/pages/notfound/notfound';
 import { FormsComponent } from './app/pages/forms/forms.component';
+import { ProspectsComponent } from './app/pages/prospects/prospects.component';
+import { UsersComponent } from './app/pages/users/users.component';
 
 export const appRoutes: Routes = [
     // Public routes
@@ -17,9 +19,11 @@ export const appRoutes: Routes = [
         component: AppLayout,
         children: [
             { path: '', component: Dashboard },
-            { path: 'uikit', loadChildren: () => import('./app/pages/uikit/uikit.routes') },
-            { path: 'documentation', component: Documentation },
-            { path: 'pages', loadChildren: () => import('./app/pages/pages.routes') }
+            { path: 'prospectos', component: ProspectsComponent },
+            { path: 'usuarios', component: UsersComponent },
+            //{ path: 'uikit', loadChildren: () => import('./app/pages/uikit/uikit.routes') },
+            //{ path: 'pages', loadChildren: () => import('./app/pages/pages.routes') },
+            //{ path: 'documentation', component: Documentation },
         ]
     },
     // Erros

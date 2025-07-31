@@ -1,0 +1,102 @@
+<div class="card">
+    <p-breadcrumb [model]="items" [home]="home" />
+
+
+    <section>
+
+        <!-- Header and Actions -->
+        <div class="flex items-center justify-between">
+            <h1>Prospectos</h1>
+            <p-button icon="pi pi-plus" label="Nuevo Prospecto" (click)="selectModalMode()"></p-button>
+        </div>
+
+        <!-- Table -->
+        <div class="mb-4">
+            <p-button type="button" icon="pi pi-chevron-left" text />
+            <p-button type="button" icon="pi pi-refresh" text />
+            <p-button type="button" icon="pi pi-chevron-right" text />
+        </div>
+
+        <p-table [value]="[{ name: 'John Doe', email: 'Z6A9H@example.com', date: '2022-01-01'}]" [paginator]="true"
+            [rows]="10" [first]="0" [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '50rem' }"
+            [rowsPerPageOptions]="[10, 25, 50]">
+            <ng-template #header>
+                <tr>
+                    <th>Nombres</th>
+                    <th>Correo electrónico</th>
+                    <th>Fecha de contacto</th>
+                    <th>Estado</th>
+                    <th>
+                        <span class="flex justify-center">
+                            Acciones
+                        </span>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template #body let-perosn>
+                <tr>
+                    <td>{{ perosn.name }}</td>
+                    <td>{{ perosn.email }}</td>
+                    <td>{{ perosn.date }}</td>
+                    <td>
+                        <p-badge value="Activo" severity="success" class="cursor-pointer" />
+                    </td>
+                    <td>
+                        <div class="flex gap-4 items-center justify-center">
+                            <p-button icon="pi pi-eye" severity="secondary" outlined />
+                            <p-button icon="pi pi-inbox" severity="success" outlined />
+                            <p-button icon="pi pi-pencil" severity="info" outlined (click)="selectModalMode(true)" />
+                            <p-button icon="pi pi-trash" severity="danger" outlined />
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+        <!-- Dialog for New or Edit Prospect -->
+        <p-dialog [header]="modalHeader" [modal]="true" [(visible)]="visible" [style]="{ width: '50rem' }"
+            [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="true" [draggable]="false">
+
+            <div class="py-1 flex gap-4 items-center mb-4">
+
+                <p-floatlabel variant="on" class="w-full">
+                    <input pInputText id="names" autocomplete="off" type="text" class="w-full" />
+                    <label for="names">Nombres *</label>
+                </p-floatlabel>
+
+                <p-floatlabel variant="on" class="w-full">
+                    <input pInputText id="email" autocomplete="off" type="email" class="w-full" />
+                    <label for="email">Correo electrónico *</label>
+                </p-floatlabel>
+
+            </div>
+
+            <div class="py-1 flex gap-4 items-center mb-4">
+
+                <p-floatlabel variant="on" class="w-full">
+                    <input pInputText id="phone" autocomplete="off" type="tel" class="w-full" />
+                    <label for="phone">Teléfono *</label>
+                </p-floatlabel>
+
+                <p-floatlabel variant="on" class="w-full">
+                    <p-datepicker id="dateContact" appendTo="body" styleClass="w-full" inputStyleClass="w-full" />
+                    <label for="dateContact">Fecha de contacto *</label>
+                </p-floatlabel>
+
+            </div>
+
+            <div class="">
+                <span class="font-bold my-4 block">Observaciones *</span>
+                <p-editor [style]="{ height: '320px' }" />
+            </div>
+
+            <div class="flex justify-end gap-2 mt-4">
+                <p-button label="Cancelar" severity="info" (click)="visible = false" />
+                <p-button label="Guardar" severity="success" />
+            </div>
+
+        </p-dialog>
+
+    </section>
+
+</div>

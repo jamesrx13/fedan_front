@@ -26,11 +26,12 @@ interface MenuChangeEvent {
     providedIn: 'root'
 })
 export class LayoutService {
+
     _config: layoutConfig = {
         preset: 'Aura',
         primary: 'emerald',
         surface: null,
-        darkTheme: false,
+        darkTheme: true,
         menuMode: 'static'
     };
 
@@ -116,7 +117,7 @@ export class LayoutService {
             .then(() => {
                 this.onTransitionEnd();
             })
-            .catch(() => {});
+            .catch(() => { });
     }
 
     toggleDarkMode(config?: layoutConfig): void {
